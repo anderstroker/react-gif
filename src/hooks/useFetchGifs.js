@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getGifs } from "../helpers/getGifs";
 
 export const useFetchGifs = (category) => {
-    const [a, setA] = useState({
+    const [state, setState] = useState({
         data:[],
         loading: true
     })
@@ -13,7 +13,7 @@ export const useFetchGifs = (category) => {
       .then(img => {
         setTimeout(()=> {
           console.log(img)
-          setA({
+          setState({
             loading: false, 
             data: img
           })
@@ -22,5 +22,5 @@ export const useFetchGifs = (category) => {
 
     }, [category])
 
-  return a
+  return state
 }
